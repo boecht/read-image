@@ -1,16 +1,13 @@
 [project]
 name = "read-image"
 version = "1.0.0"
-description = "MCP server to read image files as base64"
+description = "MCP server to read image files"
 readme = "README.md"
 requires-python = ">=3.13"
 license = "Unlicense"
 license-files = ["LICENSE"]
 authors = [{ name = "boecht" }]
-keywords = [
-  "llm-tools",
-  "mcp",
-  "image-processing",]
+keywords = ["llm-tools", "mcp", "image-processing"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Information Technology",
@@ -18,7 +15,8 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
-  "Topic :: Scientific/Engineering :: Image Processing",]
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
 dependencies = ["mcp[cli]~=1.26"]
 
 [project.urls]

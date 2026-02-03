@@ -1,23 +1,22 @@
-"""MCP server to read image files and return as base64."""
+"""MCP server to read image files."""
 
-import base64
 import mimetypes
 from pathlib import Path
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP, Image
 
 mcp = FastMCP("boecht/read-image")
 
 
 @mcp.tool()
-def read_image(file_path: str) -> dict:
-    """Read an image file and return its contents as base64.
+def read_image(file_path: str) -> Image:
+    """Read an image file from the filesystem and return its contents.
 
     Args:
         file_path: Absolute path to the image file.
 
     Returns:
-        Dictionary with base64 data, file size, and mime type.
+        Image content that can be displayed by the AI agent.
     """
     path = Path(file_path)
 
@@ -30,11 +29,7 @@ def read_image(file_path: str) -> dict:
     data = path.read_bytes()
     mime_type, _ = mimetypes.guess_type(file_path)
 
-    return {
-        "data": base64.b64encode(data).decode("ascii"),
-        "size_bytes": len(data),
-        "mime_type": mime_type or "application/octet-stream",
-    }
+    return Image(data=data, format=mime_type or "image/png")
 
 
 if __name__ == "__main__":
