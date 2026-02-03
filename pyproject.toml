@@ -1,7 +1,7 @@
 [project]
 name = "read-image"
 version = "1.0.0"
-description = "MCP server to read image files"
+description = "MCP server to read image files and return them as viewable content"
 readme = "README.md"
 requires-python = ">=3.13"
 license = "Unlicense"
